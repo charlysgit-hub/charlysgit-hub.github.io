@@ -2,9 +2,10 @@
   --icon-width: 480px;
   --icon-height: 480px;
   --num-icons: 9;
-  --highlight-color: #fff; /* Weiße Linie für den Highlight-Effekt */
-  --highlight-brightness: 120%; /* Helligkeitseffekt */
-  --highlight-width: 2px; /* Breite der Linie */
+  --highlight-color: #fff;
+  --highlight-brightness: 150%;
+  --highlight-width: 4px;
+  --winning-flash-duration: 0.8s;
 }
 
 html, body {
@@ -59,6 +60,7 @@ body {
   background-image: url('https://i.imgur.com/WrsTwQf.png');
   background-position: 0 0;
   background-repeat: repeat-y;
+  content: "Text";
 }
 
 .reel::after {
@@ -68,7 +70,12 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4) 0%, transparent 30%, transparent 70%, rgba(0, 0, 0, 0.4) 100%);
+  background-image: linear-gradient(
+    rgba(0, 0, 0, 0.4) 0%,
+    transparent 30%,
+    transparent 70%,
+    rgba(0, 0, 0, 0.4) 100%
+  );
   box-shadow: inset 0 0 6px 2px rgba(0, 0, 0, 0.3);
 }
 
@@ -90,6 +97,11 @@ body {
 .start-button:hover {
   background: black;
   color: white;
+}
+
+.start-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .debug {
@@ -121,6 +133,18 @@ a {
 .win3 {
   position: relative;
   border: none !important;
+  animation: win3Flash 200ms steps(2, end) infinite;
+}
+
+@keyframes win3Flash {
+  0% {
+    background: linear-gradient(45deg, lightblue 0%, lightgreen 100%);
+    box-shadow: 0 0 80px lightgreen;
+  }
+  100% {
+    background: transparent;
+    box-shadow: none;
+  }
 }
 
 .win3 .winning-overlay {
@@ -132,8 +156,22 @@ a {
   display: none;
   cursor: pointer;
   z-index: 5;
-  border: var(--highlight-width) solid var(--highlight-color); /* Weiße, leuchtende Linie */
+  border: var(--highlight-width) solid var(--highlight-color);
   filter: brightness(var(--highlight-brightness));
+}
+
+.winning-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Squada One', sans-serif;
+  font-size: 4rem;
+  color: #fff;
+  text-shadow: 0 0 10px whitesmoke, 0 0 20px whitesmoke, 0 0 30px whitesmoke;
+  opacity: 0;
+  z-index: 6;
+  animation: textFlash 2.4s ease-in-out;
 }
 
 .slots.win3 .winning-overlay {
@@ -149,7 +187,74 @@ a {
   filter: brightness(150%);
 }
 
-/* Klickbare Symbole für das Weiterleiten zur nächsten Seite */
 .reel.clickable:hover {
   border: var(--highlight-width) solid var(--highlight-color);
+}
+
+/* Popup-Styling */
+.popup {
+    display: none; /* Standardmäßig nicht sichtbar */
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    padding: 20px;
+    border: 2px solid black;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    width: 300px;
+    text-align: center;
+    visibility: hidden; /* Anfangs unsichtbar */
+    opacity: 0; /* Anfangs transparent */
+    transition: visibility 0s, opacity 0.5s ease; /* Übergangseffekt für ein sanftes Ein- und Ausblenden */
+}
+
+.popup.show {
+    display: block; /* Popup sichtbar machen */
+    visibility: visible; /* Sichtbar machen */
+    opacity: 1; /* Voll sichtbar machen */
+}
+
+
+.popup-title {
+    font-family: 'Squada One', sans-serif;
+    font-size: 2rem;
+    color: #000;
+    margin: 0;
+    text-shadow: 0 0 10px whitesmoke, 0 0 20px whitesmoke, 0 0 30px whitesmoke;
+}
+
+.popup-close {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #000;
+    background: transparent;
+    border: none;
+    font-weight: bold;
+}
+
+.popup-close:hover {
+    color: red;
+}
+
+.popup-download {
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-family: Arial, sans-serif;
+    color: black;
+    background: white;
+    border: 2px solid black;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease;
+    margin-top: 20px;
+}
+
+.popup-download:hover {
+    background: black;
+    color: white;
 }
