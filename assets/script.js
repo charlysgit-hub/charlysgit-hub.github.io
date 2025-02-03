@@ -55,7 +55,9 @@ function rollAll() {
                     document.querySelector(".slots").classList.remove("win3");
                     // Zeige das Popup an
                     const popup = document.getElementById('popup');
-                    popup.classList.add('show');  // Popup sichtbar machen
+                    popup.style.display = 'flex';  // Popup anzeigen
+                    popup.style.visibility = 'visible';  // Sicherstellen, dass es sichtbar ist
+                    popup.style.opacity = '1';  // Opazität auf 1 setzen
                 }, 2000);
             }
         });
@@ -66,10 +68,22 @@ document.getElementById("startButton").addEventListener("click", rollAll);
 // Schließe das Popup, wenn das Schließen-Symbol angeklickt wird
 document.getElementById("closePopup").addEventListener("click", () => {
     const popup = document.getElementById('popup');
-    popup.classList.remove('show');  // Popup ausblenden
+    popup.style.display = 'none'; // Popup ausblenden
+    popup.style.visibility = 'hidden'; // Verhindert, dass es weiterhin sichtbar ist
+    popup.style.opacity = '0'; // Setzt die Sichtbarkeit auf 0
 });
 
 // Placeholder für den Download-Button
 document.getElementById("downloadButton").addEventListener("click", () => {
     alert("Download-Button wurde geklickt! (Hier kann eine Funktion hinzugefügt werden.)");
+});
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Event-Listener für Close-Button (X)
+    document.getElementById('closePopup').addEventListener('click', function() {
+        document.getElementById('popup').style.display = 'none';
+    });
+
+    
 });

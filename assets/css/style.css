@@ -5,7 +5,11 @@
   --highlight-color: #fff;
   --highlight-brightness: 150%;
   --highlight-width: 4px;
-  --winning-flash-duration: 0.8s;
+  --winning-flash-duration: 7s;
+  
+  /* Neon-Farben */
+  --neon: #01FE2B;
+  --neon-glow: #02c435;
 }
 
 html, body {
@@ -26,18 +30,7 @@ body {
   position: relative;
 }
 
-.title {
-  position: absolute;
-  top: 30px;
-  font-size: 3rem;
-  color: #000;
-  font-family: 'Squada One', sans-serif;
-  text-shadow: 0 0 10px whitesmoke, 0 0 20px whitesmoke, 0 0 30px whitesmoke;
-  margin: 0;
-  text-align: center;
-  z-index: 10;
-  width: 100%;
-}
+
 
 .slots {
   position: relative;
@@ -60,7 +53,6 @@ body {
   background-image: url('https://i.imgur.com/WrsTwQf.png');
   background-position: 0 0;
   background-repeat: repeat-y;
-  content: "Text";
 }
 
 .reel::after {
@@ -133,21 +125,27 @@ a {
 .win3 {
   position: relative;
   border: none !important;
-  animation: win3Flash 200ms steps(2, end) infinite;
+  animation: win3Flash 7s ease-in-out infinite; /* 7 Sekunden für sanfteres Blinken */
 }
 
+
+
 @keyframes win3Flash {
-  0% {
-    background: linear-gradient(45deg, lightblue 0%, lightgreen 100%);
-    box-shadow: 0 0 80px lightgreen;
-  }
-  100% {
+  0%, 100% {
     background: transparent;
     box-shadow: none;
   }
+  20%, 50% {
+    background: var(--neon);
+    box-shadow: 0 0 15px 5px var(--neon-glow); /* sanfter Glow */
+  }
+  50% {
+    background: var(--neon);
+    box-shadow: 0 0 25px 10px var(--neon-glow); /* stärkerer Glow zur Mitte */
+  }
 }
 
-.win3 .winning-overlay {
+.slots.win3 .winning-overlay {
   position: absolute;
   top: calc(50% - var(--icon-height) / 2);
   left: 0;
@@ -193,57 +191,62 @@ a {
 
 /* Popup-Styling */
 .popup {
-    display: none; /* Standardmäßig nicht sichtbar */
+    display: none;
     position: fixed;
-    top: 20%;
+    top: 50%;
     left: 50%;
-    transform: translateX(-50%);
-    background-color: white;
+    transform: translate(-50%, -50%);
+    background-color: transparent;
     padding: 20px;
-    border: 2px solid black;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     z-index: 100;
-    width: 300px;
+    width: 200px;
+    height: 200px;
     text-align: center;
-    visibility: hidden; /* Anfangs unsichtbar */
-    opacity: 0; /* Anfangs transparent */
-    transition: visibility 0s, opacity 0.5s ease; /* Übergangseffekt für ein sanftes Ein- und Ausblenden */
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.popup.show {
-    display: block; /* Popup sichtbar machen */
-    visibility: visible; /* Sichtbar machen */
-    opacity: 1; /* Voll sichtbar machen */
+.popup:target {
+    display: flex;
+    visibility: visible;
+    opacity: 1;
 }
-
 
 .popup-title {
-    font-family: 'Squada One', sans-serif;
-    font-size: 2rem;
-    color: #000;
-    margin: 0;
-    text-shadow: 0 0 10px whitesmoke, 0 0 20px whitesmoke, 0 0 30px whitesmoke;
+    font-family: 'Dancing Script', cursive;
+    font-size: 100px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    position: relative;
+    filter: drop-shadow(0 0 10px white) drop-shadow(0 0 20px white) drop-shadow(0 0 30px white);
 }
 
 .popup-close {
     position: absolute;
     top: 10px;
-    left: 10px;
+    left: -40px; /* Verschieben Sie das "X" links neben den Titel */
     font-size: 1.5rem;
     cursor: pointer;
     color: #000;
     background: transparent;
     border: none;
     font-weight: bold;
+    text-decoration: none;
 }
 
 .popup-close:hover {
-    color: red;
+    color: #39FF14; /* Neon grüner Hover-Effekt */
 }
 
-.popup-download {
+.popup-download, .popup-close {
     padding: 10px 20px;
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-family: Arial, sans-serif;
     color: black;
     background: white;
@@ -251,10 +254,34 @@ a {
     border-radius: 20px;
     cursor: pointer;
     transition: background 0.3s ease, color 0.3s ease;
-    margin-top: 20px;
+    z-index: 10;
 }
 
 .popup-download:hover {
     background: black;
     color: white;
+}
+
+.popup-close:hover {
+    background: black;
+    color: white;
+}
+
+img[src="bilder/lasvegas.svg"] {
+  width: 650px;  /* Setze die Breite des SVG */
+  height: auto;  /* Beibehaltung des Seitenverhältnisses */
+  display: block;  /* Das Bild wird als Block-Element angezeigt */
+  position: absolute;  /* Positioniert das Bild relativ zum nächsten positionierten Element (hier body) */
+  top: 10px;  /* Setzt das Bild nach unten */
+  left: 62%;  /* Positioniert das Bild horizontal */
+  transform: translateX(-50%);  /* Korrigiert die Position, damit es exakt in der Mitte ist */
+  z-index: 10;  /* Stellt sicher, dass das Bild über anderen Elementen bleibt */
+  background: transparent;  /* Sicherstellen, dass der Hintergrund des SVG transparent bleibt */
+  
+  /* Mehrere drop-shadow Effekte für stärkeren Glow */
+  filter: 
+    drop-shadow(0 0 10px white) 
+    drop-shadow(0 0 20px white) 
+    drop-shadow(0 0 30px white) 
+    
 }
