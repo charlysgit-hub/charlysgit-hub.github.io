@@ -78,12 +78,20 @@ document.getElementById("downloadButton").addEventListener("click", () => {
     alert("Download-Button wurde geklickt! (Hier kann eine Funktion hinzugefügt werden.)");
 });
 
+const svgImg = document.querySelector('img[src="bilder/lasvegas.svg"]');
+const tooltip = document.getElementById('tooltip');
 
-document.addEventListener("DOMContentLoaded", function() {
-    // Event-Listener für Close-Button (X)
-    document.getElementById('closePopup').addEventListener('click', function() {
-        document.getElementById('popup').style.display = 'none';
-    });
+svgImg.addEventListener('mouseenter', () => {
+    tooltip.style.opacity = '1';
+    tooltip.style.visibility = 'visible';
+});
+
+svgImg.addEventListener('mouseleave', () => {
+    tooltip.style.opacity = '0';
+    tooltip.style.visibility = 'hidden';
+});
+
+
 
     
-});
+

@@ -8,8 +8,8 @@
   --winning-flash-duration: 7s;
   
   /* Neon-Farben */
-  --neon: #01FE2B;
-  --neon-glow: #02c435;
+  --neon: #48D1CC;
+  --neon-glow: #48D1CC;
 }
 
 html, body {
@@ -26,8 +26,10 @@ body {
   flex-direction: column;
   background: linear-gradient(45deg, grey 0%, lightgray 100%);
   background-image: url(https://i.imgur.com/hTFuMBQ.jpeg);
-  background-size: 1%;
+  background-size: 4%;
+  backdrop-filter: invert(100%);
   position: relative;
+
 }
 
 
@@ -72,19 +74,28 @@ body {
 }
 
 .start-button {
+
   position: absolute;
   bottom: 30px;
   padding: 10px 20px;
-  font-size: 1.2rem;
-  font-family: Arial, sans-serif;
+  font-size: 1.8rem;
+  font-family: none;
   color: black;
-  background: white;
-  border: 2px solid black;
-  border-radius: 20px;
+  background: transparent;
   cursor: pointer;
   transition: background 0.3s ease, color 0.3s ease;
   z-index: 10;
+  filter: 
+    drop-shadow(0 0 10px white) 
+    drop-shadow(0 0 20px white) 
+    drop-shadow(0 0 30px white) 
+    
 }
+.start-button {
+  border: none; /* Entfernt den Rand */
+  outline: none; /* Entfernt den Fokus-Rahmen */
+}
+
 
 .start-button:hover {
   background: black;
@@ -191,7 +202,7 @@ a {
 
 /* Popup-Styling */
 .popup {
-    display: none;
+    display: flex;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -227,22 +238,7 @@ a {
     filter: drop-shadow(0 0 10px white) drop-shadow(0 0 20px white) drop-shadow(0 0 30px white);
 }
 
-.popup-close {
-    position: absolute;
-    top: 10px;
-    left: -40px; /* Verschieben Sie das "X" links neben den Titel */
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: #000;
-    background: transparent;
-    border: none;
-    font-weight: bold;
-    text-decoration: none;
-}
 
-.popup-close:hover {
-    color: #39FF14; /* Neon grüner Hover-Effekt */
-}
 
 .popup-download, .popup-close {
     padding: 10px 20px;
@@ -261,11 +257,47 @@ a {
     background: black;
     color: white;
 }
+.popup-close {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: black;
+    background: transparent;
+    border: none;
+    font-weight: bold;
+    text-decoration: none;
+}
 
 .popup-close:hover {
-    background: black;
-    color: white;
+    color: #48D1CC;
 }
+
+.tooltip {
+  position: absolute;
+  top: 80px; /* Position leicht unterhalb des SVG */
+  left: 62%;
+  transform: translateX(-50%);
+  background: transparent;
+  color: black;
+   font-family: 'Dancing Script', cursive;
+  font-size: 1.5rem;
+  padding: 10px 15px;
+  border-radius: 5px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out;
+  white-space: nowrap;
+  z-index: 20;
+  filter: 
+    drop-shadow(0 0 10px white) 
+    drop-shadow(0 0 20px white) 
+    drop-shadow(0 0 30px white) 
+}
+
+
+
 
 img[src="bilder/lasvegas.svg"] {
   width: 650px;  /* Setze die Breite des SVG */
