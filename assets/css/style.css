@@ -230,7 +230,7 @@ a {
 }
 
 .popup-title {
-    font-family: 'Dancing Script', cursive;
+    font-family: 'PhililtaRus';
     font-size: 100px;
     font-weight: bold;
     margin-bottom: 20px;
@@ -281,7 +281,7 @@ a {
   transform: translateX(-50%);
   background: transparent;
   color: black;
-   font-family: 'Dancing Script', cursive;
+   font-family: 'PhililtaRus', cursive;
   font-size: 1.5rem;
   padding: 10px 15px;
   border-radius: 5px;
