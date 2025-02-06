@@ -312,8 +312,36 @@ img[src="bilder/lasvegas.svg"] {
   
   /* Mehrere drop-shadow Effekte für stärkeren Glow */
   filter: 
-    drop-shadow(0 0 10px white) 
-    drop-shadow(0 0 20px white) 
-    drop-shadow(0 0 30px white) 
+    drop-shadow(0 0 10px
+#00E0E5) 
+    drop-shadow(0 0 20px 
+
+#EAEE3B) 
+    drop-shadow(0 0 30px 
+#FF7ED9) 
     
 }
+img[src="bilder/start.svg"] {
+  width: 1200px;  /* Setze die Breite des SVG */
+  height: auto;  /* Beibehaltung des Seitenverhältnisses */
+  display: block;  /* Das Bild wird als Block-Element angezeigt */
+  position: absolute;  /* Positioniert das Bild relativ zum nächsten positionierten Element (hier body) */
+  top: 450px;  /* Setzt das Bild nach unten */
+  left: 37%;  /* Positioniert das Bild horizontal */
+  transform: translateX(-50%);  /* Korrigiert die Position, damit es exakt in der Mitte ist */
+  z-index: 10;  /* Stellt sicher, dass das Bild über anderen Elementen bleibt */
+  background: transparent;  /* Sicherstellen, dass der Hintergrund des SVG transparent bleibt */
+  
+  /* Mehrere drop-shadow Effekte für stärkeren Glow */
+  filter: 
+    drop-shadow(0 0 10px 
+#00E0E5) 
+    drop-shadow(0 0 20px 
+
+#EAEE3B) 
+    drop-shadow(0 0 30px 
+
+#FF7ED9) 
+    
+}
+

@@ -63,7 +63,8 @@ function rollAll() {
         });
 }
 
-document.getElementById("startButton").addEventListener("click", rollAll);
+document.querySelector('img[src="bilder/start.svg"]').addEventListener("click", rollAll);
+
 
 // Schließe das Popup, wenn das Schließen-Symbol angeklickt wird
 document.getElementById("closePopup").addEventListener("click", () => {
