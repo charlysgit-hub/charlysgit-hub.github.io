@@ -174,7 +174,7 @@ a {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-family: 'Squada One', sans-serif;
+  font-family: 'Arial', sans-serif;
   font-size: 4rem;
   color: #fff;
   text-shadow: 0 0 10px whitesmoke, 0 0 20px whitesmoke, 0 0 30px whitesmoke;
@@ -230,7 +230,7 @@ a {
 }
 
 .popup-title {
-    font-family: 'PhililtaRus';
+    font-family: 'Futura Bold font';
     font-size: 100px;
     font-weight: bold;
     margin-bottom: 20px;
@@ -243,7 +243,7 @@ a {
 .popup-download, .popup-close {
     padding: 10px 20px;
     font-size: 1.2rem;
-    font-family: Arial, sans-serif;
+    font-family: Futura Bold font, sans-serif;
     color: black;
     background: white;
     border: 2px solid black;
@@ -281,7 +281,7 @@ a {
   transform: translateX(-50%);
   background: transparent;
   color: black;
-   font-family: 'PhililtaRus', cursive;
+   font-family: 'Futura Bold font', cursive;
   font-size: 1.5rem;
   padding: 10px 15px;
   border-radius: 5px;
@@ -316,9 +316,8 @@ img[src="bilder/lasvegas.svg"] {
 #00E0E5) 
     drop-shadow(0 0 20px 
 
-#EAEE3B) 
-    drop-shadow(0 0 30px 
-#FF7ED9) 
+#00E0E5) 
+    drop-shadow(0 0 30px white) 
     
 }
 img[src="bilder/start.svg"] {
@@ -338,7 +337,7 @@ img[src="bilder/start.svg"] {
 #00E0E5) 
     drop-shadow(0 0 20px 
 
-#EAEE3B) 
+#00E0E5) 
     drop-shadow(0 0 30px 
 
 #FF7ED9) 
