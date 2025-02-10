@@ -133,4 +133,10 @@ window.onload = () => {
         startSvg.classList.remove('initialGlow');
     }, 5000); // 5 Sekunden warten, bevor die Klasse entfernt wird
 };
+document.querySelector('img[src="bilder/start.svg"]').addEventListener('click', () => {
+    const popup = document.getElementById('popup');
+    popup.style.display = 'none';
+    popup.style.visibility = 'hidden';
+    popup.style.opacity = '0';
+});
 

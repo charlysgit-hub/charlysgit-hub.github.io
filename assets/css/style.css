@@ -52,7 +52,7 @@ body {
   border: 1px solid rgba(0, 0, 0, 0.3);
   border-radius: 3px;
   overflow: hidden;
-  background-image: url('https://i.imgur.com/WrsTwQf.png');
+  background-image: url('https://i.imgur.com/e3Lpsfc.png');
   background-position: 0 0;
   background-repeat: repeat-y;
 }
@@ -169,19 +169,7 @@ a {
   filter: brightness(var(--highlight-brightness));
 }
 
-.winning-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-family: 'Arial', sans-serif;
-  font-size: 4rem;
-  color: #fff;
-  text-shadow: 0 0 10px whitesmoke, 0 0 20px whitesmoke, 0 0 30px whitesmoke;
-  opacity: 0;
-  z-index: 6;
-  animation: textFlash 2.4s ease-in-out;
-}
+
 
 .slots.win3 .winning-overlay {
   display: block;
@@ -205,7 +193,7 @@ a {
 .popup {
     display: flex;
     position: fixed;
-    top: 30%;
+    top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: transparent;
@@ -245,22 +233,34 @@ a {
     text-decoration: none; /* Entfernt Unterstreichung */
 }
 .popup-title {
-    font-size: 100px;  /* Setzt die Schriftgröße auf 200px */
-    font-weight: bold;  /* Macht den Text fett, optional */
+     /* Setzt die Schriftgröße auf 200px */
     text-align: center;  /* Zentriert den Text */
-    color: black;  /* Setzt die Textfarbe auf Gelb, optional */
+    color: black;  
     font-family: Futura Bold font, sans-serif;
+     font-size: 1.5rem;
+      filter: 
+    drop-shadow(0 0 10px white) 
+    drop-shadow(0 0 20px white) 
+    drop-shadow(0 0 30px white) 
+    drop-shadow(0 0 40px white) 
+}
+
 }
 
 .popup-download:hover {
     background: black;
     color: white;
+    filter: 
+    drop-shadow(0 0 10px white) 
+    drop-shadow(0 0 20px white) 
+    drop-shadow(0 0 30px white) 
+
 }
 
 .popup-close {
     position: absolute;
-    top: 100px;
-    left: 100px;
+    top: 30px;
+    left: 15px;
     font-size: 3rem;
     cursor: pointer;
     color: black;
@@ -268,16 +268,21 @@ a {
     border: none;
     font-weight: bold;
     text-decoration: none;
+    filter: 
+    drop-shadow(0 0 10px white) 
+    drop-shadow(0 0 20px white) 
+    drop-shadow(0 0 30px white) 
+
 }
 
 .popup-close:hover {
-    color: #48D1CC;
+    color: white;
 }
 
 .tooltip {
   position: absolute;
   top: 80px; /* Position leicht unterhalb des SVG */
-  left: 62%;
+  left: 75%;
   transform: translateX(-50%);
   background: transparent;
   color: black;
@@ -317,7 +322,7 @@ img[src="bilder/lasvegas.svg"] {
     drop-shadow(0 0 20px 
 
 #00E0E5) 
-    drop-shadow(0 0 30px white) 
+    drop-shadow(0 0 30px #00E0E5) 
     
 }
 img[src="bilder/start.svg"] {
@@ -340,7 +345,7 @@ img[src="bilder/start.svg"] {
 #00E0E5) 
     drop-shadow(0 0 30px 
 
-#FF7ED9) 
+#00E0E5) 
     
 }
 @keyframes blink-effect {
