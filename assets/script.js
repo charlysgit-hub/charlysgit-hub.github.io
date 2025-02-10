@@ -51,6 +51,32 @@ function rollAll() {
             debugEl.textContent = indexes.map((i) => iconMap[i]).join(' - ');
             if (indexes[0] === indexes[1] && indexes[1] === indexes[2]) {
                 document.querySelector(".slots").classList.add("win3");
+                const lasVegasSvg = document.querySelector('img[src="bilder/lasvegas.svg"]');
+const startSvg = document.querySelector('img[src="bilder/start.svg"]');
+
+if (indexes[0] === indexes[1] && indexes[1] === indexes[2]) {
+    document.querySelector(".slots").classList.add("win3");
+    
+    // Blinken aktivieren
+    lasVegasSvg.classList.add("blink");
+    startSvg.classList.add("blink");
+
+    setTimeout(() => {
+        document.querySelector(".slots").classList.remove("win3");
+
+        // Blinken nach 1 Sekunde beenden
+        lasVegasSvg.classList.remove("blink");
+        startSvg.classList.remove("blink");
+
+        // Popup anzeigen
+        const popup = document.getElementById('popup');
+        popup.style.display = 'flex';
+        popup.style.visibility = 'visible';
+        popup.style.opacity = '1';
+        
+    }, 2000);
+}
+
                 setTimeout(() => {
                     document.querySelector(".slots").classList.remove("win3");
                     // Zeige das Popup an
@@ -93,6 +119,18 @@ svgImg.addEventListener('mouseleave', () => {
 });
 
 
+window.onload = () => {
+    const lasVegasSvg = document.querySelector('img[src="bilder/lasvegas.svg"]');
+    const startSvg = document.querySelector('img[src="bilder/start.svg"]');
 
-    
+    // Füge die initialGlow-Klasse hinzu, um den leuchtenden Umriss zu aktivieren
+    lasVegasSvg.classList.add('initialGlow');
+    startSvg.classList.add('initialGlow');
+
+    // Entferne die Klasse nach 5 Sekunden, damit der Effekt endet
+    setTimeout(() => {
+        lasVegasSvg.classList.remove('initialGlow');
+        startSvg.classList.remove('initialGlow');
+    }, 5000); // 5 Sekunden warten, bevor die Klasse entfernt wird
+};
 
