@@ -1,43 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg id="Ebene_6" data-name="Ebene 6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1448.64 785.56">
+<svg id="Ebene_6" data-name="Ebene 6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 257.8 56.7">
   <defs>
     <style>
       .cls-1 {
-        letter-spacing: .5em;
+        letter-spacing: .56em;
+      }
+
+      .cls-1, .cls-2, .cls-3 {
+        fill: #ddd;
+        font-family: ArialRoundedMTBold, 'Arial Rounded MT Bold';
+        font-size: 42px;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4 {
+        isolation: isolate;
+      }
+
+      .cls-5 {
+        fill: none;
+        stroke: #ddd;
+        stroke-miterlimit: 10;
+        stroke-width: 5px;
       }
 
       .cls-2 {
-        fill: none;
-        stroke: #1d1d1b;
-        stroke-miterlimit: 10;
-        stroke-width: 5px;
+        letter-spacing: .5em;
       }
 
       .cls-3 {
         letter-spacing: .51em;
       }
-
-      .cls-4 {
-        fill: #1d1d1b;
-        font-family: ArialRoundedMTBold, 'Arial Rounded MT Bold';
-        font-size: 42px;
-      }
-
-      .cls-5 {
-        letter-spacing: .56em;
-      }
-
-      .cls-6 {
-        letter-spacing: .56em;
-      }
     </style>
   </defs>
   <g>
-    <circle class="cls-2" cx="855.24" cy="202.08" r="24.72"/>
-    <circle class="cls-2" cx="908.28" cy="202.41" r="24.72"/>
-    <circle class="cls-2" cx="957.63" cy="203.56" r="24.72"/>
-    <circle class="cls-2" cx="1008.98" cy="203.81" r="24.72"/>
-    <circle class="cls-2" cx="1058.6" cy="204.34" r="24.72"/>
+    <circle class="cls-5" cx="27.22" cy="27.22" r="24.72"/>
+    <circle class="cls-5" cx="80.26" cy="27.55" r="24.72"/>
+    <circle class="cls-5" cx="129.61" cy="28.7" r="24.72"/>
+    <circle class="cls-5" cx="180.96" cy="28.95" r="24.72"/>
+    <circle class="cls-5" cx="230.58" cy="29.48" r="24.72"/>
   </g>
-  <text class="cls-4" transform="translate(842.48 216.74)"><tspan class="cls-6" x="0" y="0">S</tspan><tspan class="cls-1" x="51.58" y="0">T</tspan><tspan class="cls-6" x="98.74" y="0">A</tspan><tspan class="cls-3" x="152.51" y="0">R</tspan><tspan class="cls-5" x="204.19" y="0">T</tspan></text>
+  <g class="cls-4">
+    <text class="cls-1" transform="translate(14.46 41.88)"><tspan x="0" y="0">S</tspan></text>
+    <text class="cls-2" transform="translate(66.04 41.88)"><tspan x="0" y="0">T</tspan></text>
+    <text class="cls-1" transform="translate(113.2 41.88)"><tspan x="0" y="0">A</tspan></text>
+    <text class="cls-3" transform="translate(166.97 41.88)"><tspan x="0" y="0">R</tspan></text>
+    <text class="cls-1" transform="translate(218.65 41.88)"><tspan x="0" y="0">T</tspan></text>
+  </g>
 </svg>
